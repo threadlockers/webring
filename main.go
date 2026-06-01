@@ -29,6 +29,7 @@ func main() {
 	}
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		setCorsHeaders(w)
 		w.WriteHeader(http.StatusOK)
 		w.Write([]byte("uwu"))
 	})
@@ -92,10 +93,12 @@ func main() {
 			}
 		}
 
+		setCorsHeaders(w)
 		http.Redirect(w, r, url, http.StatusFound)
 	})
 
 	http.HandleFunc("/random", func(w http.ResponseWriter, r *http.Request) {
+		setCorsHeaders(w)
 		index := rand.Intn(len(webring))
 		http.Redirect(w, r, webring[index].Url, http.StatusFound)
 	})
@@ -104,7 +107,14 @@ func main() {
 	fmt.Println("server is up and running at :8080")
 }
 
+func setCorsHeaders(w http.ResponseWriter) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "GET, OPTIONS")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+}
+
 func buildJsonResponse(w http.ResponseWriter, statusCode int, v any) {
+	setCorsHeaders(w)
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(statusCode)
 	json.NewEncoder(w).Encode(v)
