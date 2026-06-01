@@ -92,7 +92,7 @@ func main() {
 			}
 		}
 
-		http.Redirect(w, r, url, http.StatusMovedPermanently)
+		http.Redirect(w, r, url, http.StatusFound)
 	})
 
 	http.HandleFunc("/random", func(w http.ResponseWriter, r *http.Request) {
