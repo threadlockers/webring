@@ -34,7 +34,7 @@ func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		host := r.Host
 
-		if strings.HasSuffix(host, ".seggs.lol") && slices.Contains(hostsToIgnore, host) {
+		if strings.HasSuffix(host, ".seggs.lol") && !slices.Contains(hostsToIgnore, host) {
 			sub := strings.TrimSuffix(host, ".seggs.lol")
 			for _, entry := range webring {
 				if entry.Name == sub {
