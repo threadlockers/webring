@@ -2,7 +2,9 @@
 
 a dead simple [webring](https://en.wikipedia.org/wiki/Webring) api server for threadlocked.
 
-join our [discord server](https://discord.gg/gqyV3nyjwE) to meet cool engineers and hackers :p 
+join our [discord server](https://discord.gg/gqyV3nyjwE) to meet cool engineers and hackers :p - please text @ni5arga or @datavorous_ on discord for approval or if you face any issues while joining. 
+
+
 
 ## how to join the webring?
 
