@@ -13,7 +13,7 @@ join our [discord server](https://discord.gg/gqyV3nyjwE) to meet cool engineers 
 
 ## how to join the webring?
 
-add your entry to [`webring.json`](./webring.json) and open a pr:
+append your entry to [`webring.json`](./webring.json) and open a pr:
 
 ```json
 {
@@ -23,7 +23,7 @@ add your entry to [`webring.json`](./webring.json) and open a pr:
 }
 ```
 
-the position of your entry in the array determines where you sit in the ring order. append at the end or insert between existing members - up to you! once your entry gets added to the webring, you can use `https://<name>.seggs.lol` as a redirect to your site.
+once your entry gets added to the webring, you can use `https://<name>.seggs.lol` as a redirect to your site.
 
 ## how to add prev / next / random to your site?
 
