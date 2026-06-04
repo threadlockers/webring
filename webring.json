@@ -35,6 +35,11 @@
     "url": "https://silicognition.is-a.dev"
   },
   {
+    "name": "siddhi",
+    "gh": "sidharthify",
+    "url": "https://sidharthify.tech"
+  },
+  {
     "name": "0xn1nja",
     "gh": "0xn1nja",
     "url": "https://www.0xn1nja.dev"
@@ -188,15 +193,5 @@
     "name": "farhan",
     "gh": "farhan291",
     "url": "https://www.ifarhan.tech/"
-  },
-  {
-    "name": "bl1nd",
-    "gh": "blindandinsane",
-    "url": "https://bl1nd.space"
-  },
-  {
-    "name": "ronak",
-    "gh": "ronakgh97",
-    "url": "https://ronakgh97.github.io/me/"
   }
 ]
