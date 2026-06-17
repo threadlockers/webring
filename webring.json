@@ -205,27 +205,28 @@
     "url": "https://zahin-tapadar.vercel.app/"
   },
   {
-	"name": "pratham",
-	"gh": "sadisticbrew",
-	"url": "https://sadisticbrew.github.io/"
+    "name": "pratham",
+    "gh": "sadisticbrew",
+    "url": "https://sadisticbrew.github.io/"
   },
   {
-	"name": "ankita",
-	"gh": "0xafraidoftime",
-	"url": "https://ankitapal.com/"
+    "name": "ankita",
+    "gh": "0xafraidoftime",
+    "url": "https://ankitapal.com/"
   },
   {
-  "name": "Arnesh",
-  "gh": "ArneshBanerjee",
-  "url": "https://arneshbanerjee.github.io/"
+    "name": "Arnesh",
+    "gh": "ArneshBanerjee",
+    "url": "https://arneshbanerjee.github.io/"
   },
-  {"name": "Shriram",
-   "gh": "0x1622",
-   "url": "https://blogs.pwnedby.me/"
+  {
+    "name": "Shriram",
+    "gh": "0x1622",
+    "url": "https://blogs.pwnedby.me/"
   },
-  "name": "Manav"
-   "gh": "0x4r35"
-   "url": "https://github.com/0x4r35"
+  {
+    "name": "Manav",
+    "gh": "0x4r35",
+    "url": "https://github.com/0x4r35"
   }
-
 ]
