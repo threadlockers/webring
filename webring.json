@@ -215,22 +215,22 @@
     "url": "https://ankitapal.com/"
   },
   {
-    "name": "Arnesh",
+    "name": "arnesh",
     "gh": "ArneshBanerjee",
     "url": "https://arneshbanerjee.github.io/"
   },
   {
-    "name": "Shriram",
+    "name": "shriram",
     "gh": "0x1622",
     "url": "https://blogs.pwnedby.me/"
   },
   {
-    "name": "Manav",
+    "name": "manav",
     "gh": "0x4r35",
     "url": "https://github.com/0x4r35"
   },
   {
-    "name": "Kalash",
+    "name": "kalash",
     "gh": "kalashb",
     "url": "https://kalashb.com"
   },
@@ -248,5 +248,10 @@
 	  "name": "xevrion",
 	  "gh": "xevrion",
 	  "url": "https://xevrion.dev"
+  },
+  {
+	  "name": "bytejoseph",
+	  "gh": "ByteJoseph",
+	  "url": "https://bytejoseph.pages.dev"
   }
 ]
