@@ -11,6 +11,8 @@ a dead simple [webring](https://en.wikipedia.org/wiki/Webring) server for thread
 
 ## how to join the webring?
 
+pull requests are restricted to users with write access only - please ping the admins in the [#webring](https://discord.com/channels/1463893045731921934/1510847098738704494) channel of the discord server to get yourself added into the webring. 
+
 append your entry to [`webring.json`](./webring.json) and open a pr:
 
 ```json
