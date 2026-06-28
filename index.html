@@ -264,9 +264,12 @@
         border-top: 1px solid var(--overlay);
         color: var(--muted);
         font-size: 0.8rem;
+        text-align: center;
       }
       footer a { color: var(--pine); text-decoration: none; }
       footer a:hover { text-decoration: underline; }
+      .badges { display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 0.6rem; }
+      .badge-credit { color: var(--muted); font-size: 0.75rem; margin-top: 0.8rem; }
 
       @media (max-width: 1024px) {
         .grid { grid-template-columns: repeat(5, 1fr); }
@@ -324,14 +327,21 @@
       </div>
 
       <p class="section-label">members</p>
-      <div class="grid" id="grid"><!--MEMBERS--></div>
+      <div class="grid" id="grid"></div>
 
       <p id="empty" class="empty" hidden>no members match.</p>
 
       <footer>
-        a <a href="https://en.wikipedia.org/wiki/Webring">webring</a>.
-        jump to a <a href="/random">random site</a> &middot; grab the
-        <a href="/webring">json</a>
+        <div class="footer-text">
+          a <a href="https://en.wikipedia.org/wiki/Webring">webring</a>.
+          jump to a <a href="/random">random site</a> &middot; grab the
+          <a href="/webring">json</a>
+        </div>
+        <div class="badge-credit">badges by <a href="https://github.com/nithitsuki">@nithitsuki</a></div>
+        <div class="badges">
+          <a href="/"><img width="88" height="31" alt="threadlocked webring" src="https://github.com/user-attachments/assets/86fc434f-8b29-4628-b0a3-33cdf4d487c0" /></a>
+          <a href="/"><img width="88" height="31" alt="threadlocked webring" src="https://github.com/user-attachments/assets/f4bd0e19-e15e-46ce-9505-2a373f579a73" /></a>
+        </div>
       </footer>
     </main>
 
