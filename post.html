@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      (function () {
+        var saved;
+        try { saved = localStorage.getItem("theme"); } catch (e) {}
+        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.dataset.theme = saved || (prefersDark ? "dark" : "light");
+      })();
+    </script>
+    <title><!--TITLE--> · threadlocked</title>
+    <style>
+      :root {
+        --base: #faf4ed;
+        --surface: #fffaf3;
+        --overlay: #f2e9e1;
+        --muted: #9893a5;
+        --subtle: #797593;
+        --text: #575279;
+        --love: #b4637a;
+        --gold: #ea9d34;
+        --rose: #d7827e;
+        --pine: #286983;
+        --foam: #56949f;
+        --iris: #907aa9;
+        --highlight: #f4ede8;
+        --radius: 0;
+        --theme: var(--base);
+        --tertiary: var(--muted);
+        --secondary: var(--subtle);
+      }
+      :root[data-theme="dark"] {
+        --base: #191724;
+        --surface: #1f1d2e;
+        --overlay: #26233a;
+        --muted: #6e6a86;
+        --subtle: #908caa;
+        --text: #e0def4;
+        --love: #eb6f92;
+        --gold: #f6c177;
+        --rose: #ebbcba;
+        --pine: #31748f;
+        --foam: #9ccfd8;
+        --iris: #c4a7e7;
+        --highlight: #21202e;
+      }
+
+      * { box-sizing: border-box; }
+
+      ::-webkit-scrollbar-track {
+          background: 0 0;
+      }
+
+      ::-webkit-scrollbar-thumb {
+          background: var(--tertiary);
+          border: 5px solid var(--theme);
+          border-radius: var(--radius);
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+          background: var(--secondary);
+      }
+
+      ::-webkit-scrollbar:not(.highlighttable, .highlight table, .gist .highlight) {
+          background: var(--theme);
+      }
+
+      @media screen and (min-width: 768px) {
+          ::-webkit-scrollbar {
+              width: 19px;
+              height: 11px;
+          }
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: var(--base);
+        color: var(--text);
+        font: 16px/1.6 ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+        -webkit-font-smoothing: antialiased;
+        transition: background 0.25s ease, color 0.25s ease;
+      }
+
+      main {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 4rem 1.5rem 6rem;
+      }
+
+      header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      h1 {
+        margin: 0 0 0.45rem;
+        font-size: 1.9rem;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+      }
+      h1 .ring { color: var(--iris); }
+
+      .parent-title { color: inherit; text-decoration: none; }
+      .parent-title:hover { color: var(--iris); }
+      .sep { color: var(--muted); margin: 0 0.2em; }
+      .current-page { color: var(--foam); }
+
+      .actions { flex: none; display: flex; gap: 0.5rem; }
+
+      .icon-btn {
+        appearance: none;
+        display: grid;
+        place-items: center;
+        width: 2.4rem;
+        height: 2.4rem;
+        background: var(--surface);
+        color: var(--subtle);
+        border: 1px solid var(--overlay);
+        border-radius: 0;
+        padding: 0;
+        cursor: pointer;
+        transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+      }
+      .icon-btn:hover { border-color: var(--iris); color: var(--iris); }
+      .icon-btn svg { width: 1.15rem; height: 1.15rem; display: block; }
+
+      .post { max-width: 72ch; }
+      .post-title {
+        margin: 0 0 0.25rem;
+        font-size: 1.6rem;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+      .post-date {
+        display: block;
+        color: var(--muted);
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
+      }
+
+      .post-content { line-height: 1.75; }
+      .post-content h1,
+      .post-content h2,
+      .post-content h3,
+      .post-content h4 {
+        margin: 2rem 0 0.75rem;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+      .post-content h1 { font-size: 1.5rem; }
+      .post-content h2 { font-size: 1.3rem; }
+      .post-content h3 { font-size: 1.15rem; }
+      .post-content p { margin: 0 0 1rem; }
+      .post-content a { color: var(--foam); text-decoration: underline; }
+      .post-content a:hover { color: var(--iris); }
+      .post-content code {
+        background: var(--surface);
+        padding: 0.15em 0.4em;
+        font-size: 0.9em;
+        border: 1px solid var(--overlay);
+        font-family: inherit;
+      }
+      .post-content pre {
+        background: var(--surface);
+        border: 3px solid var(--overlay);
+        border-radius: var(--radius);
+        padding: 1rem 1.25rem;
+        overflow-x: auto;
+        margin: 0 0 1rem;
+      }
+      .post-content pre code {
+        background: none;
+        padding: 0;
+        border: none;
+      }
+      .post-content blockquote {
+        margin: 0 0 1rem;
+        padding: 0.75rem 1rem;
+        border-left: 3px solid var(--pine);
+        background: var(--surface);
+        color: var(--subtle);
+      }
+      .post-content ul,
+      .post-content ol { margin: 0 0 1rem; padding-left: 1.5rem; }
+      .post-content li { margin-bottom: 0.25rem; }
+      .post-content img { max-width: 100%; height: auto; border: 3px solid var(--overlay); border-radius: var(--radius); }
+      .post-content hr { border: none; border-top: 1px solid var(--overlay); margin: 2rem 0; }
+      .post-content strong { font-weight: 600; }
+
+      .post-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .post-card {
+        border: 3px solid var(--overlay);
+        border-radius: var(--radius);
+        background: var(--surface);
+        transition: border-color 0.18s ease, background 0.18s ease;
+      }
+      .post-card:hover {
+        border-color: var(--foam);
+        background: var(--highlight);
+      }
+      .post-card a {
+        display: block;
+        padding: 1.25rem 1.5rem;
+        text-decoration: none;
+        color: var(--text);
+      }
+      .post-card time {
+        display: block;
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin-bottom: 0.25rem;
+      }
+      .post-card h2 {
+        margin: 0;
+        font-size: 1.15rem;
+        font-weight: 500;
+      }
+      .post-card:hover h2 { color: var(--foam); }
+      .post-card h2 .external-icon {
+        vertical-align: middle;
+        margin-left: 0.25em;
+        color: var(--muted);
+        transition: color 0.18s ease;
+      }
+      .post-card:hover h2 .external-icon { color: var(--foam); }
+      .empty-state {
+        color: var(--muted);
+        font-size: 0.9rem;
+        padding: 2rem 0;
+      }
+
+      footer {
+        margin-top: 3rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--overlay);
+        color: var(--muted);
+        font-size: 0.8rem;
+        text-align: center;
+      }
+      footer a { color: var(--pine); text-decoration: none; }
+      footer a:hover { text-decoration: underline; }
+
+      @media (max-width: 480px) {
+        main { padding: 2.5rem 1rem 4rem; }
+        h1 { font-size: 1.5rem; }
+        .post-title { font-size: 1.3rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <h1><a href="/blog/" class="parent-title">thread<span class="ring">locked</span></a><span class="sep">/</span><span class="current-page">blog</span></h1>
+        </div>
+        <div class="actions">
+          <a
+            class="icon-btn"
+            href="/blog/"
+            hx-boost="false"
+            aria-label="Back to blog"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          </a>
+          <a
+            class="icon-btn"
+            href="/"
+            hx-boost="false"
+            aria-label="Back to webring"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </a>
+          <button id="toggle" class="icon-btn" type="button" aria-label="Toggle theme"></button>
+        </div>
+      </header>
+
+      <article class="post" hx-boost="true">
+        <h2 class="post-title"><!--TITLE--></h2>
+        <time class="post-date" datetime="<!--DATE-->"><!--DATE--></time>
+        <div class="post-content"><!--CONTENT--></div>
+      </article>
+
+      <footer>
+        <a href="/blog/" hx-boost="false">back to blog</a>
+      </footer>
+    </main>
+
+    <script src="https://unpkg.com/htmx.org@2.0.4/dist/htmx.min.js"></script>
+    <script>
+      (function () {
+        var root = document.documentElement;
+        var btn = document.getElementById("toggle");
+        var icons = {
+          dark: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>',
+          light: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>',
+        };
+
+        function apply(theme) {
+          root.dataset.theme = theme;
+          btn.innerHTML = icons[theme];
+          try { localStorage.setItem("theme", theme); } catch (e) {}
+        }
+
+        apply(root.dataset.theme || "light");
+
+        btn.addEventListener("click", function () {
+          apply(root.dataset.theme === "dark" ? "light" : "dark");
+        });
+      })();
+    </script>
+  </body>
+</html>

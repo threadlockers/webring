@@ -109,8 +109,10 @@
       }
       h1 .ring { color: var(--iris); }
 
-      .desc { margin: 0; color: var(--subtle); font-size: 1rem; max-width: 52ch; }
+      .desc { margin: 0; color: var(--subtle); font-size: 1rem; }
       .desc .count { color: var(--foam); }
+      .desc a { color: var(--foam); text-decoration: none; }
+      .desc a:hover { text-decoration: underline; }
 
       .actions { flex: none; display: flex; gap: 0.5rem; }
 
@@ -292,6 +294,7 @@
           <p class="desc">
             a webring of personal sites.
             <span class="count" id="count"><!--COUNT--></span>
+            &middot; <a href="/blog/">check out our blog</a>
           </p>
         </div>
         <div class="actions">
