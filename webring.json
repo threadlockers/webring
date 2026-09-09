@@ -308,5 +308,10 @@
     "name": "x3r0day",
     "gh": "X3r0Day",
     "url": "https://x3r0day.me/"
+  },
+  {
+    "name": "Parth",
+    "gh": "losthread",
+    "url": "https://losthread-portfolio.vercel.app/"
   }
 ]
